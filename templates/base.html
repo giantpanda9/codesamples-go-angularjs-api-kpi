@@ -1,0 +1,63 @@
+[[define "base"]]
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>KPI</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="static/css/main.css">
+		<link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.css">
+		<link rel="stylesheet" href="static/css/percentage-circle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+		<script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+	</head>
+	<body class="custom-body">
+		<div class="custom-header-container">
+			<header class="custom-wrapper">
+				<h1>KPI Application AngularJS</h1>
+			</header>
+		</div>
+		<script src="static/AngularJS/app.js"></script>
+		<div class="main-container">
+		<div ng-app="myApp" ng-controller="MyController" class="app-container">
+			<div class="bars-container">
+				<canvas id="base" class="chart-horizontal-bar"
+					chart-data="[chartData, chartData2]"
+					chart-labels="chartLabels"
+					chart-series="chartSeries"
+					chart-options="chartOptions"
+					chart-colors="colors"
+					height="70">
+				</canvas> 
+			</div>
+			<div class="circles-container">
+				<pct-complete value="jsonValues.Circle1.value"></pct-complete>
+				<max-complete minvalue="jsonValues.Circle2.value" maxvalue="jsonValues.Circle2.maxValue" avgvalue="jsonValues.Circle2.avgvalue"></max-complete>
+			</div>
+			<div class="years-container">
+				<div class="years-labels-container">
+					<div ng-repeat="year_value in years | orderBy:'-toString()'" ng-value="year_value" ng-click="updateAPI(year_value)">
+						{{year_value}}
+					</div>
+				</div>
+				<md-slider flex md-discrete md-vertical step="1" min="2014" max="2018" ng-model="year" ng-change="updateAPI()" aria-label="slider" >
+				</md-slider>
+			</div>
+		</div>
+		</div>
+		<div class="custom-footer-container">
+			<footer class="custom-footer">
+				<h5>&nbsp;Angular API Softwave test <a href="https://github.com/giantpanda9">GitHub Location</a></h5>
+			</footer>
+		</div>
+	</body>
+</html>
+[[end]]
