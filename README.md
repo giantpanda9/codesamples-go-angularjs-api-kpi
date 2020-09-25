@@ -17,4 +17,5 @@ This AngularJS application created under following assumtions:
 5. and go run api.go
 # How to use
 1. http://localhost:8000/page
+2. Click on years, drag the blue cloud with the white year inside or move the md-slider widget to change year and update the values
 
